@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday </title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+background:#dfefff;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+#dfefff,
+#eef6ff,
+#d6ebff
+);
+
+z-index:-3;
+}
+
+/* =========================
+   CLOUD
+========================= */
+
+.cloud{
+position:absolute;
+top:0;
+width:100%;
+height:45px;
+
+background:white;
+
+border-bottom-left-radius:25px;
+border-bottom-right-radius:25px;
+
+box-shadow:
+0 4px 10px rgba(100,140,200,.12);
+}
+
+/* =========================
+   FLOAT HEART
+========================= */
+
+.heart{
+position:absolute;
+bottom:-20px;
+
+animation:float 7s linear infinite;
+
+opacity:.7;
+
+filter:
+drop-shadow(
+0 0 10px rgba(125,184,240,.5)
+);
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+width:100%;
+height:100vh;
+
+display:none;
+
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+position:absolute;
+inset:0;
+
+padding:20px;
+
+animation:fade .7s ease;
+}
+
+.page.active{
+display:flex;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading-text{
+color:#6aa9e9;
+font-size:28px;
+font-weight:700;
+margin-top:30px;
+}
+
+.loader{
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:10px solid #fff;
+border-top:10px solid #7db8f0;
+
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+width:320px;
+cursor:pointer;
+
+transition:.4s;
+
+animation:bounce 2s infinite;
+
+filter:
+drop-shadow(
+0 10px 25px rgba(120,170,220,.2)
+);
+}
+
+.envelope:hover{
+transform:scale(1.05);
+}
+
+@keyframes bounce{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+/* =========================
+   CLICK TEXT
+========================= */
+
+.click-text{
+
+margin-top:30px;
+
+background:white;
+
+padding:16px 34px;
+
+border-radius:20px;
+
+color:#6aa9e9;
+
+font-size:18px;
+
+font-weight:600;
+
+border:4px solid #dfefff;
+
+text-align:center;
+
+min-width:340px;
+
+line-height:1.5;
+
+box-shadow:
+0 8px 20px rgba(120,170,220,.15);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+width:100%;
+max-width:380px;
+
+background:#f7fbff;
+
+border-radius:25px;
+
+padding:30px;
+
+text-align:center;
+
+box-shadow:
+0 10px 30px rgba(120,170,220,.15);
+
+border:
+1px solid rgba(170,210,255,.4);
+}
+
+.card img{
+
+width:180px;
+
+margin-bottom:20px;
+}
+
+.card h1{
+
+color:#6aa9e9;
+
+margin-bottom:20px;
+}
+
+.card p{
+
+color:#5f7f9d;
+
+line-height:1.8;
+
+font-size:15px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.next-btn{
+
+margin-top:30px;
+
+background:
+linear-gradient(
+45deg,
+#a9d5ff,
+#7db8f0
+);
+
+border:none;
+
+padding:15px 35px;
+
+border-radius:20px;
+
+font-size:20px;
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 8px 20px rgba(120,170,220,.25);
+}
+
+.next-btn:hover{
+transform:scale(1.05);
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:20px;
+}
+
+.time-box{
+
+background:#e8f4ff;
+
+padding:10px;
+
+border-radius:15px;
+
+min-width:70px;
+
+box-shadow:
+0 5px 15px rgba(120,170,220,.1);
+}
+
+.time-box h2{
+color:#6aa9e9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-img{
+
+width:55%;
+max-width:180px;
+
+margin-bottom:20px;
+
+border-radius:20px;
+
+box-shadow:
+0 10px 25px rgba(120,170,220,.2);
+}
+
+.final-text{
+
+font-size:30px;
+
+color:#6aa9e9;
+
+text-align:center;
+
+font-weight:700;
+
+line-height:1.5;
+
+font-family:'Playfair Display',serif;
+}
+
+/* =========================
+   LAST PHOTO
+========================= */
+
+.big-photo{
+
+width:85%;
+max-width:320px;
+
+border-radius:30px;
+
+box-shadow:
+0 15px 35px rgba(120,170,220,.2);
+
+animation:floatPhoto 3s ease-in-out infinite;
+}
+
+@keyframes floatPhoto{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn{
+
+position:fixed;
+
+top:20px;
+right:20px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+45deg,
+#a9d5ff,
+#7db8f0
+);
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+
+cursor:pointer;
+
+z-index:9999;
+
+color:white;
+
+box-shadow:
+0 5px 15px rgba(120,170,220,.3);
+
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.1);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.final-img{
+width:50%;
+max-width:160px;
+}
+
+.final-text{
+font-size:24px;
+}
+
+.big-photo{
+width:90%;
+max-width:300px;
+}
+
+.click-text{
+font-size:16px;
+padding:14px 26px;
+min-width:320px;
+}
+
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+.pin-box{
+background:#f7fbff;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(120,170,220,.15);
+width:100%;
+max-width:350px;
+text-align:center;
+}
+
+.pin-box h2{
+color:#6aa9e9;
+margin-bottom:20px;
+}
+
+.pin-input{
+width:100%;
+padding:15px;
+font-size:24px;
+text-align:center;
+border:2px solid #b9dcff;
+border-radius:15px;
+outline:none;
+letter-spacing:10px;
+margin-bottom:20px;
+}
+
+.pin-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:linear-gradient(45deg,#a9d5ff,#7db8f0);
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.error{
+margin-top:15px;
+color:#ff5c8d;
+font-size:14px;
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="cloud"></div>
+
+<!-- =========================
+     PAGE 1 LOADING
+========================= -->
+
+<div class="page active" id="page1">
+
+<div class="loader"></div>
+
+<div class="loading-text">
+Special For You... 💙
+</div>
+
+</div>
+
+<!-- PAGE PASSWORD -->
+
+<div class="page" id="pagePassword">
+
+<div class="pin-box">
+
+<h2>🔒 Enter Password</h2>
+
+<input
+id="pin"
+class="pin-input"
+type="password"
+maxlength="6"
+placeholder="******">
+
+<button
+class="pin-btn"
+onclick="checkPassword()">
+
+open>
+
+</button>
+
+<p
+class="error"
+id="error">
+
+Password salah 😢
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================
+     PAGE 2 AMPLOP
+========================= -->
+
+<div class="page" id="page2">
+
+<img
+class="envelope"
+onclick="openGift()"
+src="amplop.png">
+
+<div class="click-text">
+yuk klik amplopnya 💙
+</div>
+
+</div>
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<div class="page" id="page3">
+
+<div class="card">
+
+<img src="icon5.png">
+
+
+<button class="next-btn" onclick="nextPage(4)">
+💙 Tap
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<div class="page" id="page4">
+
+<div class="card">
+
+<h1>Happy Birthday</h1>
+
+<p>
+Di hari spesial ini, aku cuma mau bilang
+thank you for being such a positive light.
+Semoga di umur baru ini kamu selalu diberi
+kesehatan, kebahagiaan, dan kesempatan
+buat grow jadi versi terbaik dari diri kamu💗
+</p>
+
+<button class="next-btn" onclick="nextPage(5)">
+💗 click this
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<div class="page" id="page5">
+
+<div class="card">
+
+<img src="icon2.png">
+
+<h1>You’ve been a blessing 💖</h1>
+
+<!-- COUNTDOWN -->
+
+<div class="countdown">
+
+<div class="time-box">
+<h2 id="days">00</h2>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<h2 id="hours">00</h2>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<h2 id="minutes">00</h2>
+<p>Mins</p>
+</div>
+
+<div class="time-box">
+<h2 id="seconds">00</h2>
+<p>Secs</p>
+</div>
+
+</div>
+
+<button class="next-btn" onclick="nextPage(6)">
+💗 click this
+</button>
+
+</div>
+
+</div>
+
+<!-- PAGE 6 -->
+
+<div class="page" id="page6">
+
+<div class="card">
+
+<img
+style="width:220px;border-radius:20px;"
+src="icon4.webp">
+
+<p style="margin-top:20px;">
+semoga hal baik selalu beriringan dengamu, 
+semoga semesta senantiasa berpihak denganmu, 
+semoga jalanmu untuk mencapai masa depan yang cerah dipermudahkan, 
+teruslah tumbuh, teruslah melangkah dan berbahagialah. 
+aku akan selalu bangga atas setiap proses yang sudah kamu lalui. 
+selamat bertambah usia, I will always support u.
+</p>
+
+<button class="next-btn" onclick="nextPage(7)">
+💗 click this
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+     PAGE 7
+========================= -->
+
+<div class="page" id="page7">
+
+
+<div class="final-text">
+Happy Birthday once again! 🎂
+<br>
+love you 💖
+</div>
+
+</div>
+</div>
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="bgMusic" loop preload="auto">
+
+<source src="birthday.mp3" type="audio/mp3">
+
+</audio>
+
+<!-- MUSIC BUTTON -->
+
+<div class="music-btn" onclick="toggleMusic()">
+🎵
+</div>
+
+<script>
+
+/* =========================
+   AUTO LOADING
+========================= */
+
+setTimeout(()=>{
+
+nextPagePassword();
+
+},3000);
+
+
+function nextPagePassword(){
+
+document.querySelectorAll(".page")
+.forEach(p=>p.classList.remove("active"));
+
+document.getElementById("pagePassword")
+.classList.add("active");
+
+}
+
+const PASSWORD = "000000";
+
+function checkPassword(){
+
+const input =
+document.getElementById("pin").value;
+
+if(input===PASSWORD){
+
+nextPage(2);
+
+}else{
+
+document.getElementById("error").style.display="block";
+
+document.getElementById("pin").value="";
+
+}
+
+}
+
+/* =========================
+   PAGE SWITCH
+========================= */
+
+function nextPage(page){
+
+document.querySelectorAll('.page')
+.forEach(p=>{
+
+p.classList.remove('active');
+
+});
+
+document.getElementById('page'+page)
+.classList.add('active');
+
+}
+
+/* =========================
+   FLOAT HEARTS
+========================= */
+
+function createHeart(){
+
+const heart=document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML='💙';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.fontSize=
+Math.random()*20+20+'px';
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},7000);
+
+}
+
+setInterval(createHeart,500);
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+document.getElementById('bgMusic');
+
+let musicStarted = false;
+
+function startMusic(){
+
+if(musicStarted) return;
+
+musicStarted = true;
+
+music.volume = 0.7;
+
+music.play();
+
+}
+
+/* OPEN GIFT */
+
+function openGift(){
+
+startMusic();
+
+nextPage(3);
+
+}
+
+/* KEEP MUSIC PLAYING */
+
+document.addEventListener('click',()=>{
+
+if(music.paused){
+
+music.play();
+
+}
+
+});
+
+/* TOGGLE MUSIC */
+
+function toggleMusic(){
+
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
+
+}
+
+/* =========================
+   COUNTDOWN TO 22 MAY
+========================= */
+
+const targetDate =
+new Date("September 27, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+
+const now =
+new Date().getTime();
+
+const distance =
+targetDate - now;
+
+/* DAYS */
+
+const days =
+Math.floor(
+distance /
+(1000 * 60 * 60 * 24)
+);
+
+/* HOURS */
+
+const hours =
+Math.floor(
+(distance %
+(1000 * 60 * 60 * 24))
+/
+(1000 * 60 * 60)
+);
+
+/* MINUTES */
+
+const minutes =
+Math.floor(
+(distance %
+(1000 * 60 * 60))
+/
+(1000 * 60)
+);
+
+/* SECONDS */
+
+const seconds =
+Math.floor(
+(distance %
+(1000 * 60))
+/
+1000
+);
+
+/* SHOW */
+
+document.getElementById("days")
+.innerHTML = days;
+
+document.getElementById("hours")
+.innerHTML = hours;
+
+document.getElementById("minutes")
+.innerHTML = minutes;
+
+document.getElementById("seconds")
+.innerHTML = seconds;
+
+/* IF TIME FINISHED */
+
+if(distance < 0){
+
+document.getElementById("days")
+.innerHTML = "00";
+
+document.getElementById("hours")
+.innerHTML = "00";
+
+document.getElementById("minutes")
+.innerHTML = "00";
+
+document.getElementById("seconds")
+.innerHTML = "00";
+
+}
+
+}
+
+/* RUN */
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+</script>
+
+</body>
+</html>
